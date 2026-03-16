@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24'
+        classpath 'io.ktor.plugin:plugin:2.3.11'
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'org.jetbrains.kotlin.plugin.serialization'
+apply plugin: 'application'
+apply plugin: 'io.ktor.plugin'
+
+group = 'com.example'
+version = '0.0.1'
+
+mainClassName = 'io.ktor.server.netty.EngineMain'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.ktor:ktor-server-core-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-netty-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-content-negotiation-jvm:2.3.11'
+    implementation 'io.ktor:ktor-serialization-kotlinx-json-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-call-logging-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-auth-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-auth-jwt-jvm:2.3.11'
+    implementation 'io.ktor:ktor-server-config-yaml:2.3.11'
+    implementation 'io.ktor:ktor-server-double-receive-jvm:2.3.11'
+
+    implementation 'io.insert-koin:koin-ktor:3.5.6'
+    implementation 'io.insert-koin:koin-logger-slf4j:3.5.6'
+
+    implementation 'org.jetbrains.exposed:exposed-core:0.53.0'
+    implementation 'org.jetbrains.exposed:exposed-jdbc:0.53.0'
+    implementation 'org.jetbrains.exposed:exposed-java-time:0.53.0'
+    implementation 'org.jetbrains.exposed:exposed-dao:0.53.0'
+
+    implementation 'com.h2database:h2:2.3.232'
+    implementation 'com.auth0:java-jwt:4.4.0'
+    implementation 'ch.qos.logback:logback-classic:1.5.8'
+
+    testImplementation 'io.ktor:ktor-server-test-host-jvm:2.3.11'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit:1.9.24'
+}
+
+test {
+    useJUnit()
+}
