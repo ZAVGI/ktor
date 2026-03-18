@@ -10,7 +10,7 @@ jwt:
   realm: "events-api"
   secret: "super-secret-for-dev"
 database:
-  url: "jdbc:h2:mem:events;DB_CLOSE_DELAY=-1;MODE=PostgreSQL"
-  driver: "org.h2.Driver"
-  user: "sa"
-  password: ""
+  url: "jdbc:postgresql://localhost:5432/events"
+  driver: "org.postgresql.Driver"
+  user: "postgres"
+  password: "postgres"
