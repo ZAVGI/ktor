@@ -2,6 +2,7 @@ package com.example.routing
 
 import com.example.models.AuthResponse
 import com.example.models.ErrorResponse
+import com.example.models.RegisterResponse
 import com.example.models.LoginRequest
 import com.example.models.RegisterRequest
 import com.example.services.AuthService
@@ -25,7 +26,7 @@ fun Route.registerAuthRoutes() {
                     return@post
                 }
 
-            call.respond(HttpStatusCode.Created, mapOf("id" to user.id, "username" to user.username))
+            call.respond(HttpStatusCode.Created, RegisterResponse(user.id, user.username))
         }
 
         post("/login") {
